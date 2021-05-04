@@ -13,6 +13,11 @@ app.get('/google', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/google.html') ;
 }) ;
+app.get('/apple', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/apple.html') ;
+}) ;
+
 var PORT = process.env.PORT || 3000 ;
 app.listen(PORT, function()
 {

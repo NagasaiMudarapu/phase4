@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+}
+#Navbar {
+    position: sticky;
+    top: 0px;
+    margin: 0 auto;
+    height: 30px;
+    width: 100%;
+    background: #000000;    
+}
+.icon{
+    height: 50%;
+    width: 50%;   
+}
+.Nav-items {
+    padding-left: 40px;
+    padding-right: 30px;
+    color: white;
+}
+.order{
+    border-radius: 20px;
+    height: 25px;
+    width: 50px;
+    font-size: 13px;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: 500;
+    margin-right: 50px;
+    margin-top: 7px;
+}
+.ipad {
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 55px;
+    color : white ;
+    padding-left: 150px;
+}
+
+.img{
+    height:100% ;
+    width:100%;
+}
