@@ -5,6 +5,10 @@ app.get('/', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/index.html') ;
 }) ;
+app.get('/google', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/google.html') ;
+}) ;
 var PORT = process.env.PORT || 3000 ;
 app.listen(PORT, function()
 {
