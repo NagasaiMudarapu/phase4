@@ -1,3 +1,9 @@
 .nav{
     padding-left: 1250px;
 }
+.logo{
+    padding-top: 20px;
+}
+.container{
+    align-items: center;
+}
