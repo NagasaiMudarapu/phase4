@@ -1,0 +1,32 @@
+
+.page{
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 180px ;
+    margin-right: 180px ;
+    margin-top: 20px ; 
+    box-shadow: 0 4px 8px 0 rgba(135, 138, 141, 0.932), 0 6px 20px 0 rgba(187, 189, 192, 0.884);
+}
+
+.bor{
+    border: 1px solid black;
+}
+#img-tags{
+    width: 160;
+    height: 160;
+    margin-top: 50;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(135, 138, 141, 0.932), 0 6px 20px 0 rgba(187, 189, 192, 0.884);
+}
+.content{
+    margin-left: 20px ;
+    margin-right: 20px ;
+    margin-top: 50px ; 
+}
+
+.ver{
+    border-left: 3px solid green;
+    border-block-style: inherit  ;
+    height: 50 px;
+    margin-right : 100px ;
+}
