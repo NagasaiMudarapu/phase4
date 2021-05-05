@@ -18,6 +18,10 @@ app.get('/apple', function(req, res)
     res.sendFile(__dirname + '/frontend/html/apple.html') ;
 }) ;
 
+app.get('/color', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/color.html') ;
+}) ;
 var PORT = process.env.PORT || 3000 ;
 app.listen(PORT, function()
 {
