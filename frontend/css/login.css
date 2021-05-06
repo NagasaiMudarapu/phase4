@@ -1,0 +1,12 @@
+#page{
+    width: 25% ;
+    background-color: white;
+    margin-top: 100px ;
+    border: solid;
+}
+body{
+    background-color: blanchedalmond;
+}
+h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
