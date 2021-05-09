@@ -18,6 +18,11 @@ app.get('/register', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/register.html') ;
 }) ;
+app.get('/chart', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/chart.html') ;
+}) ;
+
 app.get('/login', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/login.html') ;
