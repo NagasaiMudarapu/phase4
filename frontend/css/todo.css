@@ -1,0 +1,19 @@
+body{
+    background-color: darkturquoise ;
+}
+#page{
+    width : 50% ;
+}
+#name{
+    width : 80% ;
+    left: 0%;
+}
+.checklist{
+    background-color: blanchedalmond ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: line-through;
+}
+.unchecklist{
+    background-color: cyan ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
