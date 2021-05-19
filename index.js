@@ -65,19 +65,11 @@ app.get('/tododata', function(req, res)
     cursor.forEach(function(doc, err) {
         if(err)
         console.log("asd") ;
-        else
-        {
-            Task[i++] = doc.task ;
-            // console.log(Task) ; 
-        }
+        else Task[i++] = doc.task ;
     }, function()
     {
-        // console.log(data) ;
-        // console.log(Task) ;
         data.tasks = Task ;
-        // console.log(data) ;
         res.json(data) ;
-        res.redirect('/todoDB') ;
     });
 }) ;
 app.post('/todoDB', function(req, res, next)
@@ -87,7 +79,6 @@ app.post('/todoDB', function(req, res, next)
     var obj = {
         "task" : item
     }
-    res.redirect('/todoDB') ;
     mongoose.connection.collection("phase4").save(obj, function(){
         res.redirect('/todoDB') ;
     }) ;
