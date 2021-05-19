@@ -38,7 +38,8 @@ function toggle(idx)
 $(document).ready(function()
 {
     var cnt = 1 ;
-    localStorage.clear() ;
+    // localStorage.clear() ;
+    display() ;
     $('#add').click(function()
     {
         var item = $('#name').val() ;
