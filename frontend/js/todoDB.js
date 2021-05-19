@@ -1,4 +1,3 @@
-
 $(document).ready(function()
 {
     $.get('/tododata', function(data, status){

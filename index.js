@@ -88,9 +88,9 @@ app.post('/todoDB', function(req, res, next)
         "task" : item
     }
     res.redirect('/todoDB') ;
-    // mongoose.connection.collection("phase4").save(obj, function(){
-    //     res.redirect('/todoDB') ;
-    // }) ;
+    mongoose.connection.collection("phase4").save(obj, function(){
+        res.redirect('/todoDB') ;
+    }) ;
 }) ;
 
 app.get('/login', function(req, res)
