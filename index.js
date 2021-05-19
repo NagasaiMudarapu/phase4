@@ -4,7 +4,8 @@ const mongoose = require('mongoose') ;
 const bodyParser = require('body-parser') ;
 app.use(bodyParser.urlencoded({extended:true})) ;
 app.use(bodyParser.json()) ;
-var url = "mongodb+srv://Nagasai:Mongo123@cluster0.v7mza.mongodb.net/phase4?retryWrites=true&w=majority" ;
+var pass = "Mongo123" ;
+var url = "mongodb+srv://Nagasai:" + pass + "@cluster0.v7mza.mongodb.net/phase4?retryWrites=true&w=majority" ;
 const options = {
     useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true 
 } ;
@@ -65,7 +66,8 @@ app.get('/tododata', function(req, res)
     cursor.forEach(function(doc, err) {
         if(err)
         console.log("asd") ;
-        else Task[i++] = doc.task ;
+        else if(!data.isdel)
+        Task[i++] = doc ;
     }, function()
     {
         data.tasks = Task ;
@@ -76,14 +78,59 @@ app.post('/todoDB', function(req, res, next)
 {
     var item = req.body.name ;
     console.log(item) ;
-    var obj = {
-        "task" : item
-    }
-    mongoose.connection.collection("phase4").save(obj, function(){
-        res.redirect('/todoDB') ;
-    }) ;
+    var ind = [] ;
+    for(var i = 0 ; i < 1000 ; i++)
+    ind[i] = 0 ;
+    var cursor = mongoose.connection.collection('phase4').find();
+    cursor.forEach(function(doc, err) {
+        if(err)
+        console.log("asd") ;
+        console.log(doc) ;
+        console.log("DOC ID" + doc.id) ;
+        ind[doc.id] = 1 ;
+        console.log(ind[doc.id]) ;
+    }, function()
+    {
+        console.log(ind) ;
+        var index = 0 ;
+        for(var i = 0 ; i < 1000 ; i++)
+        if(ind[i] === 0)
+        {
+            console.log("found" + i) ;
+            index = i ;
+            break ;
+        }
+        var obj = {
+            "task" : item,
+            "id" : index,
+            "checked" : false,
+            "isdel" : false
+        }
+        mongoose.connection.collection("phase4").save(obj, function(){
+            console.log(obj) ;
+            res.redirect('/todoDB') ;
+        }) ;
+    });
 }) ;
 
+app.put('/todoDB/:id', function(req, res){
+    var ind = req.params.id;
+    console.log(ind) ;
+    var cursor = mongoose.connection.collection('phase4').find();
+    var x = {} ;
+    cursor.forEach(function(doc, err) {
+        if(err)
+        console.log("asd") ;
+        if(doc.id == ind) x = doc ;
+    }, function() 
+    {
+        if(x.checked === false) x.checked = true ;
+        else x.isdel = true ;
+        mongoose.connection.collection("phase4").save(x, function(){
+            res.send({}) ;
+        }) ;
+    }) ;
+})
 app.get('/login', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/login.html') ;
